@@ -11,6 +11,9 @@ World Bank API → Python ETL (extract.py) → Transformation (transform.py) →
 Indicator:       Retry Logic                 Income Grouping            UPSERT Logic
 NY.GDP.PCAP.CD   (urllib3/HTTPAdapter)       (Atlas Thresholds)         (ON CONFLICT)
 
+## Power BI Dashboard
+![GDP per Capita Dashboard](dashboard.png)
+
 ## Tools Used
 * **Python 3.14**: Core programming language.
 * **Requests & urllib3**: HTTP library with `HTTPAdapter` retry strategies for resilient API calls.
