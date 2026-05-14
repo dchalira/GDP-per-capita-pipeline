@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:15
+    env_file:
+      - .env
+    environment:
+      # Map your .env keys to the ones Postgres expects internally
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      # Verifies readiness using your specific .env variables
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy # Only starts app once DB is actually ready[cite: 5]
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - .:/app # Syncs your local code/schema changes into the container[cite: 5]
+
+volumes:
+  postgres_data:
