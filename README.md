@@ -10,38 +10,33 @@ World Bank API → Python ETL (extract.py) → Transformation (transform.py) →
       ↑                ↓                           ↓                         ↓
 Indicator:       Retry Logic                 Income Grouping            UPSERT Logic
 NY.GDP.PCAP.CD   (urllib3/HTTPAdapter)       (Atlas Thresholds)         (ON CONFLICT)
-Tools Used
-Python 3.14: Core programming language.
 
-Requests & urllib3: HTTP library with HTTPAdapter retry strategies for resilient API calls.
-
-Pandas: Data manipulation, cleaning, and income group classification.
-
-SQLAlchemy: Database ORM used for handling connections and executing UPSERT logic.
-
-PostgreSQL: Relational database for persistent storage.
-
-Docker & Docker Compose: Containerization and multi-container orchestration.
-
-World Bank API: Sourcing the NY.GDP.PCAP.CD (GDP per capita) indicator.
+## Tools Used
+* **Python 3.14**: Core programming language.
+* **Requests & urllib3**: HTTP library with `HTTPAdapter` retry strategies for resilient API calls.
+* **Pandas**: Data manipulation, cleaning, and income group classification.
+* **SQLAlchemy**: Database ORM used for handling connections and executing UPSERT logic.
+* **PostgreSQL**: Relational database for persistent storage.
+* **Docker & Docker Compose**: Containerization and multi-container orchestration.
+* **World Bank API**: Sourcing the `NY.GDP.PCAP.CD` (GDP per capita) indicator.
 
 ## Project Structure
-Plaintext
+
 gdp-per-capita-pipeline/
-│── app/
+├── app/
 │   ├── extract.py      # Data extraction from World Bank API with retry logic
 │   ├── transform.py    # Data cleaning and Income Group classification
 │   ├── load.py         # Data loading with PostgreSQL UPSERT logic
-│   ├── pipeline.py     # Main orchestration script
-│── db/
-│   ├── schema.sql      # Database schema (tables, indexes, and views)
-│── config/
-│   ├── config.py       # Configuration settings and DATABASE_URL
-│── logs/               # Pipeline execution logs
-│── requirements.txt    # Python dependencies
-│── Dockerfile          # Docker image definition
-│── docker-compose.yml  # Multi-container setup
-│── README.md           # This file
+│   └── pipeline.py     # Main orchestration script
+├── db/
+│   └── schema.sql      # Database schema (tables, indexes, and views)
+├── config/
+│   └── config.py       # Configuration settings and DATABASE_URL
+├── logs/               # Pipeline execution logs
+├── requirements.txt    # Python dependencies
+├── Dockerfile          # Docker image definition
+├── docker-compose.yml  # Multi-container setup
+└── README.md           # This file
 
 ## Setup Instructions
 Prerequisites
