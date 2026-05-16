@@ -13,7 +13,7 @@ Indicator:       Retry Logic                 Income Grouping            UPSERT L
 NY.GDP.PCAP.CD   (urllib3/HTTPAdapter)       (Atlas Thresholds)         (ON CONFLICT)
 ```
 ## Power BI Dashboard
-![GDP per Capita Dashboard](dashboard.png)
+![GDP per Capita Dashboard](images/dashboard.png)
 
 ## Tools Used
 * **Python 3.14**: Core programming language.
