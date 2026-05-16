@@ -24,7 +24,7 @@ NY.GDP.PCAP.CD   (urllib3/HTTPAdapter)       (Atlas Thresholds)         (ON CONF
 * **World Bank API**: Sourcing the `NY.GDP.PCAP.CD` (GDP per capita) indicator.
 
 ## Project Structure
-
+```
 gdp-per-capita-pipeline/
 ├── app/
 │   ├── extract.py      # Data extraction from World Bank API with retry logic
@@ -40,7 +40,7 @@ gdp-per-capita-pipeline/
 ├── Dockerfile          # Docker image definition
 ├── docker-compose.yml  # Multi-container setup
 └── README.md           # This file
-
+```
 ## Setup Instructions
 Prerequisites
 Docker and Docker Compose
