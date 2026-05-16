@@ -6,11 +6,12 @@ This project implements an automated ETL (Extract, Transform, Load) pipeline tha
 The pipeline is designed to be idempotent, using SQL UPSERT logic to ensure that repeated runs update existing records without creating duplicates or breaking database views.
 
 ## Architecture
+```
 World Bank API → Python ETL (extract.py) → Transformation (transform.py) → PostgreSQL (load.py)
       ↑                ↓                           ↓                         ↓
 Indicator:       Retry Logic                 Income Grouping            UPSERT Logic
 NY.GDP.PCAP.CD   (urllib3/HTTPAdapter)       (Atlas Thresholds)         (ON CONFLICT)
-
+```
 ## Power BI Dashboard
 ![GDP per Capita Dashboard](dashboard.png)
 
